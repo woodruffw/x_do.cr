@@ -1,0 +1,9 @@
+name: x_do
+version: 0.1.0
+
+authors:
+  - William Woodruff <william@tuffbizz.com>
+
+crystal: 0.24.1
+
+license: MIT
