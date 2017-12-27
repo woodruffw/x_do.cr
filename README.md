@@ -30,7 +30,7 @@ require "x_do"
 
 XDo.act do
   active_window do |win|
-    type win, "hello from Crystal!"
+    win.type "hello from Crystal!"
   end
 end
 ```
