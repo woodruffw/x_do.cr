@@ -1,15 +1,50 @@
 class XDo
+  enum Button
+    Left        = 1
+    Middle
+    Right
+    ScrollUp
+    ScrollDown
+    ScrollLeft
+    ScrollRight
+    Button8
+    Button9
+  end
+
   enum ClientDirection
-    PARENTS
-    CHILDREN
+    Parents
+    Children
+  end
+
+  @[Flags]
+  enum KeyMask
+    Shift
+    Lock
+    Control
+    Mod1
+    Mod2
+    Mod3
+    Mod4
+    Mod5
+  end
+
+  enum ResizeFlag
+    Pixels
+    UseHints
   end
 
   enum SearchType
-    SEARCH_ANY
-    SEARCH_ALL
+    Any
+    All
+  end
+
+  enum WindowMapState
+    IsUnmapped
+    IsUnviewable
+    IsViewable
   end
 
   enum XDoFeatures
-    FEATURE_XTEST
+    XTest
   end
 end

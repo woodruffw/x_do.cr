@@ -20,10 +20,16 @@ class XDo
 
   DEFAULT_DELAY = 12000
 
+  # Returns the version of `libxdo` being used as a `String`.
   def self.lib_version
     String.new(LibXDo.version)
   end
 
+  # Returns a `Hash(String, String)` indicating the current symbol map.
+  #
+  # ```
+  # XDo.symbol_map # => {"alt" => "Alt_L", "ctrl" => "Control_L"}
+  # ```
   def self.symbol_map
     map_p = LibXDo.get_symbol_map
     map = Array(String).new
@@ -37,72 +43,123 @@ class XDo
     map.in_groups_of(2, "").to_h
   end
 
+  # Yields a block with an `XDo` instance, providing a DSL for interaction.
+  #
+  # ```
+  # XDo.act do
+  #   select_window do |win|
+  #     win.unmap!
+  #     sleep 1
+  #     win.map!
+  #     win.type "hello"
+  #   end
+  #
+  #   desktop = 3
+  # end
+  # ```
   def self.act
     xdo = new
     with xdo yield
     xdo.free!
   end
 
+  # Creates a new `XDo` instance with the given X11 *display*.
+  #
+  # Unused instances should be destroyed with `#free!`.
+  #
+  # ```
+  # # create an instance with the default display (":0")
+  # xdo = XDo.new
+  #
+  # # ...or with a different X display
+  # xdo2 = XDo.new(":2")
+  #
+  # # ... do some work ...
+  #
+  # xdo.free!
+  # ```
   def initialize(display = ":0")
     @xdo_p = LibXDo.new(display.to_unsafe)
   end
 
+  # Destroys the current instance. Do not use the object after calling this method.
   def free!
     LibXDo.free(xdo_p)
   end
 
+  # Moves the mouse to coordinates *x*, *y* on the given *screen*.
   def move_mouse(x, y, screen)
     LibXDo.move_mouse(xdo_p, x, y, screen)
   end
 
+  # Moves the mouse to coordinates *x*, *y* relative to its current position.
   def move_mouse(x, y)
     LibXDo.move_mouse_relative(xdo_p, x, y)
   end
 
+  # Returns the mouse's current position as a tuple of `x` and `y` coordinates,
+  # the `screen` it's on, and the `Window` it's over.
+  #
+  # ```
+  # x, y, screen, win = xdo.mouse_location
+  # ```
   def mouse_location
     LibXDo.get_mouse_location2(xdo_p, out x, out y, out screen, out window)
     {x, y, screen, Window.new(xdo_p, window)}
   end
 
+  # Wait for the mouse to move from the coordinates *x*, *y*.
   def wait_for_mouse_move_from(x, y)
     LibXDo.wait_for_mouse_move_from(xdo_p, x, y)
   end
 
+  # ditto
   def wait_for_mouse_move_from(x, y, &block)
     wait_for_mouse_move_from(x, y)
     with self yield
   end
 
+  # Wait for the mouse to move to the coordinates *x*, *y*.
   def wait_for_mouse_move_to(x, y)
     LibXDo.wait_for_mouse_move_to(xdo_p, x, y)
   end
 
+  # ditto
   def wait_for_mouse_move_to(x, y, &block)
     wait_for_mouse_move_to(x, y)
     with self yield
   end
 
+  # TODO: implement
   def active_keys
     # NOTE: xdo_get_active_keys_to_keycode_list
     raise "implement me!"
   end
 
+  # TODO: implement
   def active_modifiers
     # NOTE: xdo_get_active_modifiers
     raise "implement me!"
   end
 
+  # TODO: implement
   def set_active_modifiers
     # NOTE: xdo_set_active_modifiers
     raise "implement me!"
   end
 
+  # TODO: implement
   def clear_active_modifiers
     # NOTE: xdo_clear_active_modifiers
     raise "implement me!"
   end
 
-  def focused_window(*, sane = false)
+  # Returns the `Window` that currently has focus.
+  #
+  # When *sane* is set to `true`, returns the first ancestor-or-self window
+  # with the `WM_CLASS` property. When set to `false`, returns the actual focused
+  # window (which may not be the application's top-level window).
+  def focused_window(*, sane = true)
     if sane
       LibXDo.get_focused_window_sane(xdo_p, out window)
     else
@@ -112,85 +169,105 @@ class XDo
     Window.new(xdo_p, window)
   end
 
-  def focused_window(*, sane = false, &block)
+  # ditto
+  def focused_window(*, sane = true, &block)
     yield focused_window(sane: sane)
   end
 
+  # Returns the `Window` that the mouse is currently over.
   def mouse_window
     LibXDo.get_window_at_mouse(xdo_p, out window)
     Window.new(xdo_p, window)
   end
 
+  # ditto
   def mouse_window(&block)
     yield mouse_window
   end
 
+  # Returns the `Window` that is currently active.
   def active_window
     LibXDo.get_active_window(xdo_p, out window)
     Window.new(xdo_p, window)
   end
 
+  # ditto
   def active_window(&block)
     yield active_window
   end
 
+  # Returns the `Window` selected interactively.
   def select_window
     LibXDo.select_window_with_click(xdo_p, out window)
     Window.new(xdo_p, window)
   end
 
+  # ditto
   def select_window(&block)
     yield select_window
   end
 
+  # TODO: implement
   def search(query)
     raise "implement me!"
   end
 
+  # Sets the number of desktops.
   def desktops=(ndesktops)
     LibXDo.set_number_of_desktops(xdo_p, ndesktops)
   end
 
+  # Returns the number of desktops.
   def desktops
     LibXDo.get_number_of_desktops(xdo_p, out ndesktops)
     ndesktops
   end
 
-  def current_desktop=(desktop)
+  # Sets the current desktop.
+  def desktop=(desktop)
     LibXDo.set_current_desktop(xdo_p, desktop)
   end
 
-  def current_desktop
+  # Returns the current desktop's number.
+  def desktop
     LibXDo.get_current_desktop(xdo_p, out desktop)
     desktop
   end
 
-  def input_state
+  # Returns the input state, which is the `OR` of any active modifiers
+  # in the `KeyMask`.
+  def input_state : KeyMask
     LibXDo.get_input_state(xdo_p)
   end
 
+  # Sets the desktop viewport (only relevant if `_NET_DESKTOP_VIEWPORT` is supported).
   def viewport=(x, y)
     LibXDo.set_desktop_viewport(xdo_p, x, y)
   end
 
+  # Gets the desktop viewport as an `x`, `y` tuple.
   def viewport
     LibXDo.get_desktop_viewport(xdo_p, out x, out y)
     {x, y}
   end
 
+  # Gets the dimensions of the given screen's viewport as a `width`, `height` tuple.
   def viewport_dimensions(screen)
     LibXDo.get_viewport_dimensions(xdo_p, out width, out height, screen)
     {width, height}
   end
 
+  # Disable an `xdo` feature.
   def disable_feature(feature : XDoFeatures)
     LibXDo.disable_feature(xdo_p, feature)
   end
 
+  # Enable an `xdo` feature.
   def enable_feature(feature : XDoFeatures)
     LibXDo.enable_feature(xdo_p, feature)
   end
 
+  # Test whether a feature is enabled.
   def has_feature?(feature : XDoFeatures)
     LibXDo.has_feature(xdo_p, feature) == 1
   end
