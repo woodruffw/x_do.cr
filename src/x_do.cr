@@ -101,11 +101,11 @@ class XDo
   end
 
   def type(window, text : String, delay = DEFAULT_DELAY)
-    LibXDo.enter_text_window(xdo_p, text.to_unsafe, delay)
+    LibXDo.enter_text_window(xdo_p, window, text.to_unsafe, delay)
   end
 
   def keys(window, keys : String, delay = DEFAULT_DELAY)
-    LibXDo.send_keysequence_window(xdo_p, keys.to_unsafe, delay)
+    LibXDo.send_keysequence_window(xdo_p, window, keys.to_unsafe, delay)
   end
 
   def keys(window, keys : Array(LibXDo::Charcodemap), pressed, modifier, delay = DEFAULT_DELAY)
@@ -113,11 +113,11 @@ class XDo
   end
 
   def keys_up(window, keys : String, delay = DEFAULT_DELAY)
-    LibXDo.send_keysequence_window_up(xdo_p, keys.to_unsafe, delay)
+    LibXDo.send_keysequence_window_up(xdo_p, window, keys.to_unsafe, delay)
   end
 
   def keys_down(window, keys : String, delay = DEFAULT_DELAY)
-    LibXDo.send_keysequence_window_down(xdo_p, keys.to_unsafe, delay)
+    LibXDo.send_keysequence_window_down(xdo_p, window, keys.to_unsafe, delay)
   end
 
   def move_window(window, x, y)
