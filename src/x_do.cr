@@ -25,8 +25,16 @@ class XDo
   end
 
   def self.symbol_map
-    # TODO: unpack into an Array(String)
-    LibXDo.get_symbol_map
+    map_p = LibXDo.get_symbol_map
+    map = Array(String).new
+    n = 0
+
+    while map_p[n]
+      map << String.new(map_p[n])
+      n += 1
+    end
+
+    map.in_groups_of(2, "").to_h
   end
 
   def self.act
