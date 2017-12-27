@@ -35,6 +35,12 @@ XDo.act do
 end
 ```
 
+## TODO
+
+* Document methods
+* Complete bindings (`grep "implement me!"`)
+* Clean/structure up `libxdo.cr`
+
 ## Contributing
 
 1. Fork it ( https://github.com/woodruffw/x_do/fork )
