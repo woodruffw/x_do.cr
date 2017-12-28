@@ -37,7 +37,6 @@ end
 
 ## TODO
 
-* Document methods
 * Complete bindings (`grep "implement me!"`)
 * Clean/structure up `libxdo.cr`
 

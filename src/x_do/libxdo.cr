@@ -6,7 +6,18 @@ class XDo
       ERROR
     end
 
-    FeatureXTest = 0
+    type Display = Void*
+    type Gc = Void*
+
+    alias KeyCode = UInt8
+    alias XID = LibC::ULong
+    alias KeySym = XID
+    alias XPointer = LibC::Char*
+    alias VisualId = LibC::ULong
+    alias Colormap = XID
+    alias Window = XID
+    alias UsecondsT = LibC::UInt
+    alias Atom = LibC::ULong
 
     struct Search
       title : LibC::Char*
@@ -39,8 +50,6 @@ class XDo
       features_mask : LibC::Int
     end
 
-    type Display = Void*
-
     struct Charcodemap
       key : LibC::Int
       code : KeyCode
@@ -49,10 +58,6 @@ class XDo
       modmask : LibC::Int
       needs_binding : LibC::Int
     end
-
-    alias KeyCode = UInt8
-    alias XID = LibC::ULong
-    alias KeySym = XID
 
     struct XModifierKeymap
       max_keypermod : LibC::Int
@@ -82,15 +87,12 @@ class XDo
       root_input_mask : LibC::Long
     end
 
-    struct X_XExtData
+    struct XExtData
       number : LibC::Int
-      next : X_XExtData*
-      free_private : (X_XExtData* -> LibC::Int)
+      next : XExtData*
+      free_private : (XExtData* -> LibC::Int)
       private_data : XPointer
     end
-
-    type XExtData = X_XExtData
-    alias XPointer = LibC::Char*
 
     struct Depth
       depth : LibC::Int
@@ -108,14 +110,6 @@ class XDo
       bits_per_rgb : LibC::Int
       map_entries : LibC::Int
     end
-
-    alias VisualId = LibC::ULong
-    type Gc = Void*
-    alias Colormap = XID
-    alias Window = XID
-    alias UsecondsT = LibC::UInt
-    type SearchT = Search
-    alias Atom = LibC::ULong
 
     # NOTE: Unused.
     fun get_mouse_location = xdo_get_mouse_location(xdo : XDo*, x : LibC::Int*, y : LibC::Int*, screen_num : LibC::Int*) : LibC::Int
@@ -175,7 +169,7 @@ class XDo
     fun get_current_desktop = xdo_get_current_desktop(xdo : XDo*, desktop : LibC::Long*) : LibC::Int
     fun set_desktop_for_window = xdo_set_desktop_for_window(xdo : XDo*, wid : Window, desktop : LibC::Long) : LibC::Int
     fun get_desktop_for_window = xdo_get_desktop_for_window(xdo : XDo*, wid : Window, desktop : LibC::Long*) : LibC::Int
-    fun search_windows = xdo_search_windows(xdo : XDo*, search : SearchT*, windowlist_ret : Window**, nwindows_ret : LibC::UInt*) : LibC::Int
+    fun search_windows = xdo_search_windows(xdo : XDo*, search : Search*, windowlist_ret : Window**, nwindows_ret : LibC::UInt*) : LibC::Int
     fun get_window_property = xdo_get_window_property(xdo : XDo*, window : Window, property : LibC::Char*, value : UInt8**, nitems : LibC::Long*, type : Atom*, size : LibC::Int*) : LibC::Int
     fun get_input_state = xdo_get_input_state(xdo : XDo*) : LibC::UInt
     fun get_symbol_map = xdo_get_symbol_map : LibC::Char**

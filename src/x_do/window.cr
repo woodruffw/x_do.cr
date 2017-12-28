@@ -1,3 +1,10 @@
+# Represents an `XDo` view of an X11 window.
+#
+# ```
+# win.move_mouse 0, 0
+# puts "typing inside #{win["WM_NAME"]}"
+# win.type "hello!"
+# ```
 class XDo::Window
   private getter xdo_p : LibXDo::XDo*
   private getter window : LibXDo::Window
@@ -134,14 +141,14 @@ class XDo::Window
   end
 
   # Get the window's location, consisting of a tuple of `width`, `height`,
-  # and `screen` number.
+  # and `Screen` object
   #
   # ```
   # x, y, screen = win.location
   # ```
   def location
     LibXDo.get_window_location(xdo_p, window, out x, out y, out screen)
-    {x, y, screen}
+    {x, y, Screen.new(xdo_p, screen)}
   end
 
   # Get the window's desktop number.

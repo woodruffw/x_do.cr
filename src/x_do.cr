@@ -17,6 +17,7 @@ require "./x_do/*"
 # ```
 class XDo
   private getter xdo_p : LibXDo::XDo*
+  getter display : String
 
   DEFAULT_DELAY = 12000
 
@@ -78,7 +79,7 @@ class XDo
   #
   # xdo.free!
   # ```
-  def initialize(display = ":0")
+  def initialize(@display = ":0")
     @xdo_p = LibXDo.new(display.to_unsafe)
   end
 
