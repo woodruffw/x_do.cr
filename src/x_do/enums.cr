@@ -33,6 +33,18 @@ class XDo
     UseHints
   end
 
+  @[Flags]
+  enum SearchMask
+    Title # deprecated
+    Class
+    Name
+    Pid
+    OnlyVisible
+    Screen
+    ClassName
+    Desktop
+  end
+
   enum SearchType
     Any
     All

@@ -208,9 +208,33 @@ class XDo
     yield select_window
   end
 
-  # TODO: implement
+  # Takes a `Search` and runs it, returning a list of `Window`s matching the search.
+  #
+  # ```
+  # XDo.act do
+  #   query = XDo::Search.build { window_name "Firefox" }
+  #   winds = search(query)
+  #   puts winds
+  # end
+  # ```
   def search(query)
-    raise "implement me!"
+    search = query.to_struct
+    LibXDo.search_windows(xdo_p, pointerof(search), out windowlist, out nwindows)
+    Array.new(nwindows) { |i| Window.new(xdo_p, windowlist[i]) }
+  end
+
+  # Like `#search(query)`, but yields a block to build the query directly.
+  #
+  # ```
+  # XDo.act do
+  #   winds = search { window_name "Firefox" }
+  #   puts winds
+  # end
+  # ```
+  def search(&block)
+    query = Search.new
+    with query yield
+    search(query)
   end
 
   # Sets the number of desktops.

@@ -88,7 +88,7 @@ class XDo::Window
   # win.type "hello from Crystal!"
   # ```
   def type(text : String, delay = DEFAULT_DELAY)
-    LibXDo.enter_text_window(xdo_p, window, text.to_unsafe, delay)
+    LibXDo.enter_text_window(xdo_p, window, text, delay)
   end
 
   # Send some *keys* (down + up) to the window, with *delay* between them.
@@ -97,7 +97,7 @@ class XDo::Window
   # win.keys "Ctrl+s"
   # ```
   def keys(keys : String, delay = DEFAULT_DELAY)
-    LibXDo.send_keysequence_window(xdo_p, window, keys.to_unsafe, delay)
+    LibXDo.send_keysequence_window(xdo_p, window, keys, delay)
   end
 
   # Send some key press (down) events for the given *keys*, with *delay* between them.
@@ -107,7 +107,7 @@ class XDo::Window
   # win.keys_down "Ctrl+o"
   # ```
   def keys_down(keys : String, delay = DEFAULT_DELAY)
-    LibXDo.send_keysequence_window_down(xdo_p, window, keys.to_unsafe, delay)
+    LibXDo.send_keysequence_window_down(xdo_p, window, keys, delay)
   end
 
   # Send some key release (up) events for the given *keys*, with *delay* between them.
@@ -117,7 +117,7 @@ class XDo::Window
   # win.keys_up "Ctrl+o"
   # ```
   def keys_up(keys : String, delay = DEFAULT_DELAY)
-    LibXDo.send_keysequence_window_up(xdo_p, window, keys.to_unsafe, delay)
+    LibXDo.send_keysequence_window_up(xdo_p, window, keys, delay)
   end
 
   # Attempt to move the window to *x*, *y* on the screen.
@@ -193,7 +193,7 @@ class XDo::Window
   # win["WM_NAME"] = "my custom window name"
   # ```
   def []=(property : String, value : String)
-    LibXDo.set_window_property(xdo_p, window, property.to_unsafe, value.to_unsafe)
+    LibXDo.set_window_property(xdo_p, window, property, value)
   end
 
   # Get the value associated with the *property* property.
@@ -208,7 +208,7 @@ class XDo::Window
   # win.class_name = "my-custom-instance"
   # ```
   def class_name=(name : String)
-    LibXDo.set_window_class(xdo_p, window, name.to_unsafe, Pointer.null)
+    LibXDo.set_window_class(xdo_p, window, name, Pointer(UInt8).null)
   end
 
   # Set the window's class (`WM_CLASS` class name) to *klass*.
@@ -217,7 +217,7 @@ class XDo::Window
   # win.class = "my-custom-class"
   # ```
   def class=(klass : String)
-    LibXDo.set_window_class(xdo_p, window, Pointer.null, klass.to_unsafe)
+    LibXDo.set_window_class(xdo_p, window, Pointer(UInt8).null, klass)
   end
 
   # Set the window's urgency hint.
