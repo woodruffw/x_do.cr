@@ -117,7 +117,6 @@ class XDo
 
     # TODO: Unimplemented (probably not useful to 99% of users).
     fun send_keysequence_window_list_do = xdo_send_keysequence_window_list_do(xdo : XDo*, window : Window, keys : Charcodemap*, nkeys : LibC::Int, pressed : LibC::Int, modifier : LibC::Int*, delay : UsecondsT) : LibC::Int
-    fun get_active_keys_to_keycode_list = xdo_get_active_keys_to_keycode_list(xdo : XDo*, keys : Charcodemap**, nkeys : LibC::Int*) : LibC::Int
     fun get_window_property_by_atom = xdo_get_window_property_by_atom(xdo : XDo*, window : Window, atom : Atom, nitems : LibC::Long*, type : Atom*, size : LibC::Int*) : UInt8*
 
     fun new = xdo_new(display : LibC::Char*) : XDo*

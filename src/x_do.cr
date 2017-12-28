@@ -131,16 +131,10 @@ class XDo
     with self yield
   end
 
-  # TODO: implement
-  def active_keys
-    # NOTE: xdo_get_active_keys_to_keycode_list
-    raise "implement me!"
-  end
-
-  # TODO: implement
+  # Returns a list of `XDo::LibXDo::Charcodemap`s indicating all active modifier keys.
   def active_modifiers
-    # NOTE: xdo_get_active_modifiers
-    raise "implement me!"
+    LibXDo.get_active_modifiers(xdo_p, out keys, out nkeys)
+    Array.new(nkeys) { |i| keys[i] }
   end
 
   # TODO: implement
