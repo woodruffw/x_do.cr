@@ -115,7 +115,7 @@ class XDo
   end
 
   # ditto
-  def wait_for_mouse_move_from(x, y, &block)
+  def on_mouse_move_from(x, y, &block)
     wait_for_mouse_move_from(x, y)
     with self yield
   end
@@ -126,7 +126,7 @@ class XDo
   end
 
   # ditto
-  def wait_for_mouse_move_to(x, y, &block)
+  def on_mouse_move_to(x, y, &block)
     wait_for_mouse_move_to(x, y)
     with self yield
   end

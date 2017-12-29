@@ -43,20 +43,48 @@ class XDo::Window
   end
 
   # ditto
-  def wait_for_map_state(state : WindowMapState, &block)
+  def on_map_state(state : WindowMapState, &block)
     wait_for_map_state(state)
     yield self
   end
 
-  # Wait for the window's dimensions to become *width* x *height*.
-  # TODO: implement
-  def wait_for_window_size(width, height)
-    raise "implement me!"
+  # Wait for the window's dimensions to change **from** *width* x *height* to something else.
+  #
+  # If *use_hints* is set to true, the supplied dimensions are measured
+  # according to the window's size hints (not necessarily pixels).
+  def wait_for_size_from(width, height, use_hints = false)
+    LibXDo.wait_for_window_size(xdo_p, window, width, height, use_hints ? 1 : 0, 1)
   end
 
   # ditto
-  def wait_for_window_size(width, height, &block)
-    wait_for_window_size(width, height)
+  def on_size_from(width, height, use_hints = false, &block)
+    wait_for_size_from(width, height)
+    yield self
+  end
+
+  # Wait for the window's dimensions to change **to** *width* x *height* from something else.
+  #
+  # If *use_hints* is set to true, the supplied dimensions are measured
+  # according to the window's size hints (not necessarily pixels).
+  def wait_for_size_to(width, height, use_hints = false)
+    LibXDo.wait_for_window_size(xdo_p, window, width, height, use_hints ? 1 : 0, 0)
+  end
+
+  # ditto
+  def on_size_to(width, height, use_hints = false)
+    wait_for_size_to(width, height)
+    yield self
+  end
+
+  # Wait for the window's dimensions to change, and yield `self`.
+  #
+  # ```
+  # window.on_size_change do
+  #   puts "my new size is: #{window.size}"
+  # end
+  # ```
+  def on_size_change(&block)
+    wait_for_size_from(*size)
     yield self
   end
 
@@ -66,7 +94,7 @@ class XDo::Window
   end
 
   # ditto
-  def wait_for_focus(*, want_focus = true, &block)
+  def on_focus(*, want_focus = true, &block)
     wait_for_focus(want_focus: want_focus)
     yield self
   end
@@ -77,7 +105,7 @@ class XDo::Window
   end
 
   # ditto
-  def wait_for_active(*, want_active = true, &block)
+  def on_active(*, want_active = true, &block)
     wait_for_active(want_active: want_active)
     yield self
   end
