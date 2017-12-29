@@ -35,6 +35,8 @@ XDo.act do
 end
 ```
 
+Check out the [examples](./examples) folder for some practical examples.
+
 ## TODO
 
 * Complete bindings (`grep "implement me!"`)
