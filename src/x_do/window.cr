@@ -7,7 +7,7 @@
 # ```
 class XDo::Window
   private getter xdo_p : LibXDo::XDo*
-  private getter window : LibXDo::Window
+  getter window : LibXDo::Window
 
   def initialize(@xdo_p, @window)
   end
