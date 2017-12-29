@@ -131,6 +131,12 @@ class XDo
     with self yield
   end
 
+  def on_mouse_move(&block)
+    x, y, _, _ = mouse_location
+    wait_for_mouse_move_from(x, y)
+    with self yield
+  end
+
   # Returns a list of `XDo::LibXDo::Charcodemap`s indicating all active modifier keys.
   def active_modifiers
     LibXDo.get_active_modifiers(xdo_p, out keys, out nkeys)
