@@ -225,9 +225,12 @@ class XDo::Window
   end
 
   # Get the value associated with the *property* property.
-  # TODO: implement
+  #
+  # NOTE: Always returns a string, regardless of the underlying X11 atom. As a result,
+  # this method can return "garbage" strings for some property names.
   def [](property : String)
-    raise "implement me!"
+    LibXDo.get_window_property(xdo_p, window, property, out value, out _, out _, out _)
+    String.new(value)
   end
 
   # Set the window's class name (`WM_CLASS` instance name) to *name*.
