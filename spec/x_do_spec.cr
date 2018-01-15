@@ -53,19 +53,19 @@ describe XDo do
     end
   end
 
-  pending "wait_for_mouse_move_from" do
+  pending "#wait_for_mouse_move_from" do
   end
 
-  pending "on_mouse_move_from" do
+  pending "#on_mouse_move_from" do
   end
 
-  pending "wait_for_mouse_move_to" do
+  pending "#wait_for_mouse_move_to" do
   end
 
-  pending "on_mouse_move_to" do
+  pending "#on_mouse_move_to" do
   end
 
-  pending "on_mouse_move" do
+  pending "#on_mouse_move" do
   end
 
   describe "#active_modifiers" do
