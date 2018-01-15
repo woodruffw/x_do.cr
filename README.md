@@ -1,6 +1,8 @@
 x_do
 ====
 
+[![Build Status](https://travis-ci.org/woodruffw/x_do.cr.svg?branch=master)](https://travis-ci.org/woodruffw/x_do.cr)
+
 `XDo` is a Crystal interface for `libxdo`,
 the C library that backs [`xdotool`](https://github.com/jordansissel/xdotool).
 
