@@ -137,4 +137,7 @@ describe XDo do
 
   pending "#select_window" do
   end
+
+  pending "#search" do
+  end
 end
