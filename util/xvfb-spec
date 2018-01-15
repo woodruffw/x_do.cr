@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+function installed {
+    cmd=$(command -v "${1}")
+
+    [[ -n "${cmd}" ]] && [[ -f "${cmd}" ]]
+    return ${?}
+}
+
+installed Xvfb || { >&2 echo "Missing Xvfb."; exit 1; }
+installed openbox || { >&2 echo "Missing openbox."; exit 1; }
+
+echo "Starting Xvfb..."
+
+# a virtual X11 desktop (named :99) with two screens
+Xvfb :99 -screen 0 800x600x8 -screen 1 1280x1024x24 &
+xserver_pid="${!}"
+
+# give xvfb some time to spin up
+sleep 2
+
+echo "Starting Openbox..."
+
+# start openbox on xvfb, with the session manager disabled (since we don't need it)
+DISPLAY=":99" openbox --sm-disable 1>/dev/null 2>&1 &
+
+# give openbox some time to spin up
+sleep 2
+
+echo "Running specs..."
+
+DISPLAY=":99" crystal spec
+
+kill -9 "${xserver_pid}"

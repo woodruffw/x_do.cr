@@ -37,10 +37,37 @@ end
 
 Check out the [examples](./examples) folder for some practical examples.
 
+## Testing
+
+The unit tests make the following assumptions:
+
+* You're running an instance of X11
+* You're running a window manager that's (mostly) ICCCM and EWMH compliant
+* You have `xlogo` installed
+
+To run the unit tests on the default X11 display (`DISPLAY`, falling back on `:0`):
+
+```bash
+$ crystal spec
+```
+
+Alternatively, the tests can be run on another X11 display, like a Xephyr or Xvfb instance:
+
+```bash
+# replace "99" with your display number
+$ DISPLAY=:99 crystal spec
+```
+
+The `util/xvfb-spec` script can be used to run the tests inside a temporary Xvfb instance running
+Openbox:
+
+```bash
+$ ./util/xvfb-spec
+```
+
 ## TODO
 
 * Complete bindings (`grep "implement me!"`)
-* Clean/structure up `libxdo.cr`
 
 ## Contributing
 
