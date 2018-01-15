@@ -17,7 +17,7 @@ require "./x_do/*"
 # ```
 class XDo
   private getter xdo_p : LibXDo::XDo*
-  getter display : String
+  getter display : String?
 
   DEFAULT_DELAY = 12000
 
@@ -69,7 +69,7 @@ class XDo
   # Unused instances should be destroyed with `#free!`.
   #
   # ```
-  # # create an instance with the default display (":0")
+  # # create an instance on the default display or `DISPLAY` env variable
   # xdo = XDo.new
   #
   # # ...or with a different X display
@@ -79,8 +79,13 @@ class XDo
   #
   # xdo.free!
   # ```
-  def initialize(@display = ":0")
-    @xdo_p = LibXDo.new(display.to_unsafe)
+  def initialize(display = ENV["DISPLAY"]?)
+    @xdo_p = if display
+               @display = display
+               LibXDo.new(display)
+             else
+               LibXDo.new(Pointer(UInt8).null)
+             end
   end
 
   # Destroys the current instance. Do not use the object after calling this method.
@@ -161,10 +166,12 @@ class XDo
   # with the `WM_CLASS` property. When set to `false`, returns the actual focused
   # window (which may not be the application's top-level window).
   def focused_window(*, sane = true)
+    window = uninitialized LibXDo::Window
+
     if sane
-      LibXDo.get_focused_window_sane(xdo_p, out window)
+      LibXDo.get_focused_window_sane(xdo_p, pointerof(window))
     else
-      LibXDo.get_focused_window(xdo_p, out window)
+      LibXDo.get_focused_window(xdo_p, pointerof(window))
     end
 
     Window.new(xdo_p, window)
