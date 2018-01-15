@@ -30,5 +30,8 @@ sleep 2
 echo "Running specs..."
 
 DISPLAY=":99" crystal spec
+status="${?}"
 
 kill -9 "${xserver_pid}"
+
+exit "${status}"
