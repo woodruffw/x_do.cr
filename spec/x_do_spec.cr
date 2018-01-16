@@ -138,6 +138,53 @@ describe XDo do
   pending "#select_window" do
   end
 
-  pending "#search" do
+  describe "#search" do
+    it "takes a search instance" do
+      dummy_window do |xdo|
+        query = XDo::Search.build { window_name "xlogo" }
+
+        results = xdo.search(query)
+
+        results.empty?.should be_false
+        results.should be_a(Array(XDo::Window))
+        results.first.name.should eq("xlogo")
+      end
+    end
+
+    it "yields with a search DSL" do
+      dummy_window do |xdo|
+        results = xdo.search { window_name "xlogo" }
+
+        results.empty?.should be_false
+        results.should be_a(Array(XDo::Window))
+        results.first.name.should eq("xlogo")
+      end
+    end
+  end
+
+  it "sets and retrieves the number of desktops" do
+    XDo.act do
+      itself.desktops = 3
+      desktops.should eq(3)
+    end
+  end
+
+  pending "sets and retrieves the current desktop" do
+    XDo.act do
+      itself.desktop = 1
+      desktop.should eq(1)
+    end
+  end
+
+  it "retrieves the current input state mask" do
+    XDo.act do
+      input_state.should be_a(XDo::KeyMask)
+    end
+  end
+
+  pending "sets and retrieves the desktop viewport" do
+  end
+
+  pending "sets, retrieves, and checks xdo features" do
   end
 end
