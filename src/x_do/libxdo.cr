@@ -170,7 +170,7 @@ class XDo
     fun get_desktop_for_window = xdo_get_desktop_for_window(xdo : XDo*, wid : Window, desktop : LibC::Long*) : LibC::Int
     fun search_windows = xdo_search_windows(xdo : XDo*, search : Search*, windowlist_ret : Window**, nwindows_ret : LibC::UInt*) : LibC::Int
     fun get_window_property = xdo_get_window_property(xdo : XDo*, window : Window, property : LibC::Char*, value : UInt8**, nitems : LibC::Long*, type : Atom*, size : LibC::Int*) : LibC::Int
-    fun get_input_state = xdo_get_input_state(xdo : XDo*) : LibC::UInt
+    fun get_input_state = xdo_get_input_state(xdo : XDo*) : ::XDo::KeyMask
     fun get_symbol_map = xdo_get_symbol_map : LibC::Char**
     fun get_active_modifiers = xdo_get_active_modifiers(xdo : XDo*, keys : Charcodemap**, nkeys : LibC::Int*) : LibC::Int
     fun clear_active_modifiers = xdo_clear_active_modifiers(xdo : XDo*, window : Window, active_mods : Charcodemap*, active_mods_n : LibC::Int) : LibC::Int
