@@ -198,7 +198,7 @@ class XDo::Window
   # ```
   def translate_with_hint(width, height)
     LibXDo.translate_window_with_sizehint(xdo_p, window, width, height, out width1, out height1)
-    {width1, y1}
+    {width1, height1}
   end
 
   # Attempt to change the window's size to *width* x *height*, scaled by *flags*.
@@ -211,7 +211,7 @@ class XDo::Window
   # win.resize 500, 500, ResizeFlag::UseHints
   # ```
   def resize(width, height, flags : ResizeFlag = ResizeFlag::Pixels)
-    LibXDo.select_window_size(xdo_p, window, width, height, flags)
+    LibXDo.set_window_size(xdo_p, window, width, height, flags)
   end
 
   # Set the window's *property* property to *value*.

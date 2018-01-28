@@ -29,8 +29,10 @@ class XDo
   end
 
   enum ResizeFlag
-    Pixels
-    UseHints
+    Pixels    = 0
+    UseHints  = 1
+    UseHintsX = 2
+    UseHintsY = 4
   end
 
   @[Flags]
