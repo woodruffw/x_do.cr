@@ -8,6 +8,7 @@ XDo.act do
     w, h = win.size
     x, y, screen = win.location
     puts "Window ##{win.window}:"
+    puts "\tPID: #{win.pid}"
     puts "\tSize: #{w}x#{h}"
     puts "\tLocation: (#{w}, #{h})"
     puts "\tDesktop: ##{win.desktop}"
