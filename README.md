@@ -70,6 +70,7 @@ $ ./util/xvfb-spec
 ## TODO
 
 * Complete bindings (`grep "implement me!"`)
+* Add error conditions (check return value of libxdo calls)
 
 ## Contributing
 
