@@ -162,7 +162,7 @@ describe XDo do
     end
   end
 
-  it "sets and retrieves the number of desktops" do
+  pending "sets and retrieves the number of desktops" do
     XDo.act do
       itself.desktops = 3
       desktops.should eq(3)
