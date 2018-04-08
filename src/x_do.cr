@@ -83,6 +83,7 @@ class XDo
              end
   end
 
+  # Destroys the instance's internal state.
   def finalize
     LibXDo.free(xdo_p)
   end
