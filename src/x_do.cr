@@ -61,12 +61,9 @@ class XDo
   def self.act
     xdo = new
     with xdo yield
-    xdo.free!
   end
 
   # Creates a new `XDo` instance with the given X11 *display*.
-  #
-  # Unused instances should be destroyed with `#free!`.
   #
   # ```
   # # create an instance on the default display or `DISPLAY` env variable
@@ -76,8 +73,6 @@ class XDo
   # xdo2 = XDo.new(":2")
   #
   # # ... do some work ...
-  #
-  # xdo.free!
   # ```
   def initialize(display = ENV["DISPLAY"]?)
     @xdo_p = if display
@@ -88,8 +83,7 @@ class XDo
              end
   end
 
-  # Destroys the current instance. Do not use the object after calling this method.
-  def free!
+  def finalize
     LibXDo.free(xdo_p)
   end
 

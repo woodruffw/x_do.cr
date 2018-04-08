@@ -19,16 +19,12 @@ describe XDo do
     xdo = XDo.new
 
     xdo.should be_a(XDo)
-
-    xdo.free!
   end
 
   it "initializes with an explicit display" do
     xdo = XDo.new ENV["DISPLAY"]
 
     xdo.should be_a(XDo)
-
-    xdo.free!
   end
 
   it "moves the mouse on a screen" do
