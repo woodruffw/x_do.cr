@@ -268,8 +268,14 @@ class XDo
   end
 
   # Sets the desktop viewport (only relevant if `_NET_DESKTOP_VIEWPORT` is supported).
-  def viewport=(x, y)
-    LibXDo.set_desktop_viewport(xdo_p, x, y)
+  #
+  # ```
+  # XDo.act do
+  #   viewport = {x, y}
+  # end
+  # ```
+  def viewport=(tup)
+    LibXDo.set_desktop_viewport(xdo_p, *tup)
   end
 
   # Gets the desktop viewport as an `x`, `y` tuple.
