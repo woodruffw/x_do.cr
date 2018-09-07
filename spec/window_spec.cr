@@ -1,6 +1,27 @@
 require "./spec_helper"
 
 describe XDo::Window do
+  describe "#==" do
+    it "returns false when comparing against a different class" do
+      dummy_window activate: true do |xdo|
+        xdo.active_window.should_not eq("foo")
+      end
+    end
+
+    it "returns true when comparing itself with itself" do
+      dummy_window activate: true do |xdo|
+        active_window = xdo.active_window
+        active_window.should eq(active_window)
+      end
+    end
+
+    it "returns true when comparing a different instance with the same WID" do
+      dummy_window activate: true do |xdo|
+        xdo.active_window.should eq(xdo.active_window)
+      end
+    end
+  end
+
   pending "#mouse_move" do
   end
 
@@ -202,10 +223,34 @@ describe XDo::Window do
   pending "#close!" do
   end
 
-  pending "#parent" do
+  describe "#parent" do
+    # TODO: Create a window that doesn't have a parent (root window?)
+    pending "fails if the window doesn't have a parent" do
+    end
+
+    it "gets the window's parent window" do
+      dummy_window activate: true do |xdo|
+        parent = xdo.active_window.parent
+
+        parent.should be_a(XDo::Window)
+        parent.should eq(xdo.active_window.child.parent.parent)
+      end
+    end
   end
 
-  pending "#child" do
+  describe "#child" do
+    # TODO: Create a window that doesn't have a child.
+    pending "fails if the window doesn't have a child" do
+    end
+
+    it "gets the window's (first) child window" do
+      dummy_window activate: true do |xdo|
+        child = xdo.active_window.child
+
+        child.should be_a(XDo::Window)
+        child.parent.should eq(xdo.active_window)
+      end
+    end
   end
 
   pending "#name" do
