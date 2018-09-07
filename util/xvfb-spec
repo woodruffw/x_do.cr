@@ -13,7 +13,7 @@ installed openbox || { >&2 echo "Missing openbox."; exit 1; }
 echo "Starting Xvfb..."
 
 # a virtual X11 desktop (named :99) with two screens
-Xvfb :99 -screen 0 800x600x8 -screen 1 1280x1024x24 &
+Xvfb :99 -screen 0 800x600x24 -screen 1 1280x1024x24 &
 xserver_pid="${!}"
 
 # give xvfb some time to spin up
