@@ -61,4 +61,9 @@ class XDo
   enum XDoFeatures
     XTest
   end
+
+  enum Status
+    Success = 0
+    Error   = 1
+  end
 end

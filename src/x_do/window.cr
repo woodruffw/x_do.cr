@@ -12,6 +12,13 @@ class XDo::Window
   def initialize(@xdo_p, @window)
   end
 
+  # Returns true if `other` has the same X11 window ID (WID).
+  def ==(other)
+    return false unless other.is_a?(Window)
+
+    other.window == window
+  end
+
   # Move the mouse relative to this window.
   def move_mouse(x, y)
     LibXDo.move_mouse_relative_to_window(xdo_p, window, x, y)
@@ -340,14 +347,20 @@ class XDo::Window
 
   # Attempt to find the window's parent.
   def parent
-    LibXDo.find_window_client(xdo_p, window, out client, ClientDirection::Parents)
-    client
+    status = LibXDo.find_window_client(xdo_p, window, out client, ClientDirection::Parents)
+
+    raise XDo::Error.new("unable to find parent window") unless status.success?
+
+    Window.new(xdo_p, client)
   end
 
   # Attempt to find the window's child.
   def child
-    LibXDo.find_window_client(xdo_p, window, out client, ClientDirection::Children)
-    client
+    status = LibXDo.find_window_client(xdo_p, window, out client, ClientDirection::Children)
+
+    raise XDo::Error.new("unable to find child window") unless status.success?
+
+    Window.new(xdo_p, client)
   end
 
   # Get the window's name (`WM_NAME`), if any.
