@@ -36,7 +36,7 @@ class XDo::Window
 
   # Click the given mouse *button* on this window (mouse-down + mouse-up)
   def click(button : Button)
-    LibXDo.click_button(xdo_p, window, button)
+    LibXDo.click_window(xdo_p, window, button)
   end
 
   # Click the given mouse *button* *repeat* times, with *delay* between each click.
