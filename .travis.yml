@@ -1,6 +1,0 @@
-language: crystal
-before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y openbox x11-apps libxdo-dev
-script:
-  - bash ./util/xvfb-spec
