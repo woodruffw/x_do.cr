@@ -5,7 +5,7 @@ def dummy_window(*, activate = false, focus = false, &block)
   proc = Process.new("xlogo")
 
   # xlogo needs a little bit of time
-  sleep 0.1
+  sleep 0.3
 
   XDo.act do
     win = search { window_name "xlogo" }.first
