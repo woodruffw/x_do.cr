@@ -20,7 +20,7 @@ jobs:
           sudo apt-get update
           sudo apt install -y crystal openbox x11-apps libxdo-dev
       - name: lint
-        run: crystal tool format --check src/
+        run: crystal tool format --check src/ spec/
       - name: build
         run: shards build --production
       - name: test
