@@ -114,7 +114,7 @@ class XDo
     LibXDo.wait_for_mouse_move_from(xdo_p, x, y)
   end
 
-  # ditto
+  # :ditto:
   def on_mouse_move_from(x, y, &block)
     wait_for_mouse_move_from(x, y)
     with self yield
@@ -125,7 +125,7 @@ class XDo
     LibXDo.wait_for_mouse_move_to(xdo_p, x, y)
   end
 
-  # ditto
+  # :ditto:
   def on_mouse_move_to(x, y, &block)
     wait_for_mouse_move_to(x, y)
     with self yield
@@ -172,7 +172,7 @@ class XDo
     Window.new(xdo_p, window)
   end
 
-  # ditto
+  # :ditto:
   def focused_window(*, sane = true, &block)
     yield focused_window(sane: sane)
   end
@@ -183,7 +183,7 @@ class XDo
     Window.new(xdo_p, window)
   end
 
-  # ditto
+  # :ditto:
   def mouse_window(&block)
     yield mouse_window
   end
@@ -194,7 +194,7 @@ class XDo
     Window.new(xdo_p, window)
   end
 
-  # ditto
+  # :ditto:
   def active_window(&block)
     yield active_window
   end
@@ -205,7 +205,7 @@ class XDo
     Window.new(xdo_p, window)
   end
 
-  # ditto
+  # :ditto:
   def select_window(&block)
     yield select_window
   end

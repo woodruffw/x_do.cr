@@ -49,7 +49,7 @@ class XDo::Window
     LibXDo.wait_for_window_map_state(xdo_p, win, state)
   end
 
-  # ditto
+  # :ditto:
   def on_map_state(state : WindowMapState, &block)
     wait_for_map_state(state)
     yield self
@@ -63,7 +63,7 @@ class XDo::Window
     LibXDo.wait_for_window_size(xdo_p, window, width, height, use_hints ? 1 : 0, 1)
   end
 
-  # ditto
+  # :ditto:
   def on_size_from(width, height, use_hints = false, &block)
     wait_for_size_from(width, height)
     yield self
@@ -77,7 +77,7 @@ class XDo::Window
     LibXDo.wait_for_window_size(xdo_p, window, width, height, use_hints ? 1 : 0, 0)
   end
 
-  # ditto
+  # :ditto:
   def on_size_to(width, height, use_hints = false)
     wait_for_size_to(width, height)
     yield self
@@ -100,7 +100,7 @@ class XDo::Window
     LibXDo.wait_for_window_focus(xdo_p, window, want_focus ? 1 : 0)
   end
 
-  # ditto
+  # :ditto:
   def on_focus(*, want_focus = true, &block)
     wait_for_focus(want_focus: want_focus)
     yield self
@@ -111,7 +111,7 @@ class XDo::Window
     LibXDo.wait_for_window_active(xdo_p, window, want_active ? 1 : 0)
   end
 
-  # ditto
+  # :ditto:
   def on_active(*, want_active = true, &block)
     wait_for_active(want_active: want_active)
     yield self
