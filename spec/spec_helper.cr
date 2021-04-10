@@ -15,5 +15,5 @@ def dummy_window(*, activate = false, focus = false, &block)
     yield itself, proc
   end
 ensure
-  proc.kill if proc && proc.exists?
+  proc.terminate if proc && proc.exists?
 end
