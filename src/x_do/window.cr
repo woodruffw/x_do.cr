@@ -366,6 +366,6 @@ class XDo::Window
   # Get the window's name (`WM_NAME`), if any.
   def name
     LibXDo.get_window_name(xdo_p, window, out name, out _, out _)
-    String.new(name)
+    String.new(name) unless name.null?
   end
 end
