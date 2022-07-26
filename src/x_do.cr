@@ -304,4 +304,62 @@ class XDo
   def has_feature?(feature : XDoFeatures)
     LibXDo.has_feature(xdo_p, feature) == 1
   end
+
+  # Send a mouse-down event for the given mouse *button* to the active window.
+  def mouse_down(button : Button)
+    LibXDo.mouse_down(xdo_p, 0, button)
+  end
+
+  # Send a mouse-up event for the given mouse *button* to the active window.
+  def mouse_up(button : Button)
+    LibXDo.mouse_up(xdo_p, 0, button)
+  end
+
+  # Click the given mouse *button* on the active window (mouse-down + mouse-up)
+  def click(button : Button)
+    LibXDo.click_window(xdo_p, 0, button)
+  end
+
+  # Click the given mouse *button* *repeat* times, with *delay* between each click.
+  def click(button : Button, repeat, delay = DEFAULT_DELAY)
+    LibXDo.click_window_multiple(xdo_p, 0, button, repeat, delay)
+  end
+
+  # Send some *text* to the active window, with *delay* between the keystrokes.
+  #
+  # ```
+  # type "hello from Crystal!"
+  # ```
+  def type(text : String, delay = DEFAULT_DELAY)
+    LibXDo.enter_text_window(xdo_p, 0, text, delay)
+  end
+
+  # Send some *keys* (down + up) to the active window, with *delay* between them.
+  #
+  # ```
+  # keys "Ctrl+s"
+  # ```
+  def keys(keys : String, delay = DEFAULT_DELAY)
+    LibXDo.send_keysequence_window(xdo_p, 0, keys, delay)
+  end
+
+  # Send some key press (down) events for the given *keys*, with *delay* between them.
+  # See `#keys_up`.
+  #
+  # ```
+  # keys_down "Ctrl+o"
+  # ```
+  def keys_down(keys : String, delay = DEFAULT_DELAY)
+    LibXDo.send_keysequence_window_down(xdo_p, 0, keys, delay)
+  end
+
+  # Send some key release (up) events for the given *keys*, with *delay* between them.
+  # See `#keys_down`.
+  #
+  # ```
+  # keys_up "Ctrl+o"
+  # ```
+  def keys_up(keys : String, delay = DEFAULT_DELAY)
+    LibXDo.send_keysequence_window_up(xdo_p, 0, keys, delay)
+  end
 end
