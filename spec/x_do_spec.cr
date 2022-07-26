@@ -183,4 +183,28 @@ describe XDo do
 
   pending "sets, retrieves, and checks xdo features" do
   end
+
+  pending "#mouse_down" do
+  end
+
+  pending "#mouse_up" do
+  end
+
+  pending "#click" do
+  end
+
+  pending "#click" do
+  end
+
+  pending "#type" do
+  end
+
+  pending "#keys" do
+  end
+
+  pending "#keys_down" do
+  end
+
+  pending "#keys_up" do
+  end
 end
