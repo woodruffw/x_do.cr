@@ -239,6 +239,22 @@ class XDo
     search(query)
   end
 
+  # Returns the `Window` corresponding to the *id* or `nil` if it doesn't exist.
+  def get_window(id : UInt64)
+    window = Window.new(xdo_p, id)
+    # libxdo does not override the default error handler and so a BadWindow
+    # would kill the entire process
+    old_event_handler = X11.set_error_handler ->(display : LibXDo::Display, error_event : X11::ErrorEvent*) {0}
+    name = window.name
+    X11.set_error_handler old_event_handler
+    name.nil? ? nil : window
+  end
+
+  # :ditto:
+  def get_window(id : UInt64, &block)
+    yield get_window(id)
+  end
+
   # Sets the number of desktops.
   def desktops=(ndesktops)
     LibXDo.set_number_of_desktops(xdo_p, ndesktops)

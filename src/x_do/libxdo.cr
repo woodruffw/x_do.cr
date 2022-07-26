@@ -1,4 +1,19 @@
 class XDo
+  @[Link("X11")]
+  lib X11
+    struct ErrorEvent
+      type : Int32
+      display : LibXDo::Display
+      resourceid : LibXDo::XID
+      serial : UInt64
+      error_code : UInt8
+      request_code : UInt8
+      minor_code : UInt8
+    end
+    alias ErrorHandler = LibXDo::Display, ErrorEvent* -> Int32
+    fun set_error_handler = XSetErrorHandler(handler : ErrorHandler) : ErrorHandler
+  end
+
   @[Link("xdo")]
   lib LibXDo
     enum Status

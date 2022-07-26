@@ -158,6 +158,33 @@ describe XDo do
     end
   end
 
+  describe "#get_window" do
+    it "returns the window" do
+      dummy_window activate: true do |xdo|
+        active_window = xdo.active_window
+        win = xdo.get_window(active_window.window)
+        active_window.should eq(win)
+      end
+    end
+
+    it "returns nil for a bad window id" do
+      large_id = 0_u64 &- 1
+      XDo.act do
+        win = get_window(large_id)
+        win.should be_nil
+      end
+    end
+
+    it "yields the window in block form" do
+      dummy_window activate: true do |xdo|
+        active_window = xdo.active_window
+        xdo.get_window active_window.window do |win|
+          active_window.should eq(win)
+        end
+      end
+    end
+  end
+
   pending "sets and retrieves the number of desktops" do
     XDo.act do
       itself.desktops = 3
