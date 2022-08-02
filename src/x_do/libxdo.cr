@@ -150,7 +150,7 @@ class XDo
     fun raise_window = xdo_raise_window(xdo : XDo*, wid : Window) : Status
     fun get_focused_window = xdo_get_focused_window(xdo : XDo*, window_ret : Window*) : Status
     fun wait_for_window_focus = xdo_wait_for_window_focus(xdo : XDo*, window : Window, want_focus : LibC::Int) : Status
-    fun get_pid_window = xdo_get_pid_window(xdo : XDo*, window : Window) : Status
+    fun get_pid_window = xdo_get_pid_window(xdo : XDo*, window : Window) : LibC::Int
     fun get_focused_window_sane = xdo_get_focused_window_sane(xdo : XDo*, window_ret : Window*) : Status
     fun activate_window = xdo_activate_window(xdo : XDo*, wid : Window) : Status
     fun wait_for_window_active = xdo_wait_for_window_active(xdo : XDo*, window : Window, active : LibC::Int) : Status
