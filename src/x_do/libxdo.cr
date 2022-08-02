@@ -116,7 +116,6 @@ class XDo
     fun new_with_opened_display = xdo_new_with_opened_display(xdpy : Display, display : LibC::Char*, close_display_when_freed : LibC::Int) : XDo*
 
     # TODO: Unimplemented (probably not useful to 99% of users).
-    fun send_keysequence_window_list_do = xdo_send_keysequence_window_list_do(xdo : XDo*, window : Window, keys : Charcodemap*, nkeys : LibC::Int, pressed : LibC::Int, modifier : LibC::Int*, delay : UsecondsT) : Status
     fun get_window_property_by_atom = xdo_get_window_property_by_atom(xdo : XDo*, window : Window, atom : Atom, nitems : LibC::Long*, type : Atom*, size : LibC::Int*) : UInt8*
 
     fun new = xdo_new(display : LibC::Char*) : XDo*
@@ -137,6 +136,7 @@ class XDo
     fun send_keysequence_window = xdo_send_keysequence_window(xdo : XDo*, window : Window, keysequence : LibC::Char*, delay : UsecondsT) : Status
     fun send_keysequence_window_up = xdo_send_keysequence_window_up(xdo : XDo*, window : Window, keysequence : LibC::Char*, delay : UsecondsT) : Status
     fun send_keysequence_window_down = xdo_send_keysequence_window_down(xdo : XDo*, window : Window, keysequence : LibC::Char*, delay : UsecondsT) : Status
+    fun send_keysequence_window_list_do = xdo_send_keysequence_window_list_do(xdo : XDo*, window : Window, keys : Charcodemap*, nkeys : LibC::Int, pressed : LibC::Int, modifier : LibC::Int*, delay : UsecondsT) : Status
     fun wait_for_window_map_state = xdo_wait_for_window_map_state(xdo : XDo*, wid : Window, map_state : LibC::Int) : Status
     fun wait_for_window_size = xdo_wait_for_window_size(xdo : XDo*, window : Window, width : LibC::UInt, height : LibC::UInt, flags : LibC::Int, to_or_from : LibC::Int) : Status
     fun move_window = xdo_move_window(xdo : XDo*, wid : Window, x : LibC::Int, y : LibC::Int) : Status
