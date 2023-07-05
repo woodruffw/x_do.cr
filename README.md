@@ -1,7 +1,7 @@
 x_do
 ====
 
-![license](https://raster.shields.io/badge/license-MIT%20with%20restrictions-green.png)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![CI](https://github.com/woodruffw/x_do.cr/actions/workflows/ci.yml/badge.svg)](https://github.com/woodruffw/x_do.cr/actions/workflows/ci.yml)
 
 `XDo` is a Crystal interface for `libxdo`,
