@@ -2,7 +2,7 @@ name: x_do
 version: 0.8.3
 
 authors:
-  - William Woodruff <william@tuffbizz.com>
+  - William Woodruff <william@yossarian.net>
 
 crystal: ">= 0.35.0"
 
