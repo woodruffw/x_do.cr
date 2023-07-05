@@ -2,7 +2,7 @@ x_do
 ====
 
 ![license](https://raster.shields.io/badge/license-MIT%20with%20restrictions-green.png)
-[![Build Status](https://img.shields.io/github/workflow/status/woodruffw/x_do.cr/CI/master)](https://github.com/woodruffw/x_do.cr/actions?query=workflow%3ACI)
+[![CI](https://github.com/woodruffw/x_do.cr/actions/workflows/ci.yml/badge.svg)](https://github.com/woodruffw/x_do.cr/actions/workflows/ci.yml)
 
 `XDo` is a Crystal interface for `libxdo`,
 the C library that backs [`xdotool`](https://github.com/jordansissel/xdotool).
