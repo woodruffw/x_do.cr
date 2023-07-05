@@ -79,6 +79,9 @@ describe XDo::Window do
   pending "#keys_up" do
   end
 
+  pending "#keys_raw" do
+  end
+
   pending "#move" do
   end
 

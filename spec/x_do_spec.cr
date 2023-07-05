@@ -207,4 +207,7 @@ describe XDo do
 
   pending "#keys_up" do
   end
+
+  pending "#keys_raw" do
+  end
 end

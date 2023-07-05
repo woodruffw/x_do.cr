@@ -155,6 +155,26 @@ class XDo::Window
     LibXDo.send_keysequence_window_up(xdo_p, window, keys, delay)
   end
 
+  # Send some key events by specifying keysyms and modifiers directly,
+  # with *delay* between them.
+  # You most likely want to use `#keys` or `#type` instead, however this function
+  # skips the string parsing and should consequently run slightly faster.
+  #
+  # ```
+  # key1 = XDo::LibXDo::Charcodemap.new
+  # key1.code = 38
+  # key1.modmask = 1
+  # key2 = XDo::LibXDo::Charcodemap.new
+  # key2.code = 56
+  # keys = [key1, key2]
+  # # Sends `AB`
+  # win.keys_raw keys, pressed: true
+  # win.keys_raw keys, pressed: false
+  # ```
+  def keys_raw(keys : Array(LibXDo::Charcodemap), *, pressed : Bool, modifier = 0, delay = DEFAULT_DELAY)
+    LibXDo.send_keysequence_window_list_do(xdo_p, window, keys, keys.size, pressed, pointerof(modifier), delay)
+  end
+
   # Attempt to move the window to *x*, *y* on the screen.
   #
   # ```
