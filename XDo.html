@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.34.0">
+<meta name="crystal_docs.project_version" content="master">
+<meta name="crystal_docs.project_name" content="x_do">
+
+
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/doc.js"></script>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+
+  <meta id="repository-name" content="x_do">
+  <title>XDo - x_do master</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "";
+  </script>
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="index.html">
+          x_do
+        </a>
+      </h1>
+
+      <span class="project-version">
+        master
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results" class="hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent open current" data-id="x_do/XDo" data-name="xdo">
+      <a href="XDo.html">XDo</a>
+      
+        <ul>
+  
+  <li class=" " data-id="x_do/XDo/Button" data-name="xdo::button">
+      <a href="XDo/Button.html">Button</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/ClientDirection" data-name="xdo::clientdirection">
+      <a href="XDo/ClientDirection.html">ClientDirection</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/Error" data-name="xdo::error">
+      <a href="XDo/Error.html">Error</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/KeyMask" data-name="xdo::keymask">
+      <a href="XDo/KeyMask.html">KeyMask</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/ResizeFlag" data-name="xdo::resizeflag">
+      <a href="XDo/ResizeFlag.html">ResizeFlag</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/Screen" data-name="xdo::screen">
+      <a href="XDo/Screen.html">Screen</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/Search" data-name="xdo::search">
+      <a href="XDo/Search.html">Search</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/SearchMask" data-name="xdo::searchmask">
+      <a href="XDo/SearchMask.html">SearchMask</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/SearchType" data-name="xdo::searchtype">
+      <a href="XDo/SearchType.html">SearchType</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/Status" data-name="xdo::status">
+      <a href="XDo/Status.html">Status</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/Window" data-name="xdo::window">
+      <a href="XDo/Window.html">Window</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/WindowMapState" data-name="xdo::windowmapstate">
+      <a href="XDo/WindowMapState.html">WindowMapState</a>
+      
+    </li>
+  
+  <li class=" " data-id="x_do/XDo/XDoFeatures" data-name="xdo::xdofeatures">
+      <a href="XDo/XDoFeatures.html">XDoFeatures</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> XDo
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="XDo.html">XDo</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p><code><a href="XDo.html">XDo</a></code> is a Crystal interface for <code>libxdo</code>,
+the C library that backs <a href="https://github.com/jordansissel/xdotool" target="_blank"><code>xdotool</code></a>.</p>
+
+<p>It exposes most of the functionality of <code>xdotool</code>, allowing
+users to write Crystal programs that manage windows in an X11 instance.</p>
+
+<p>The easiest way to use <code><a href="XDo.html">XDo</a></code> is via <code><a href="XDo.html#act(&)-class-method">XDo.act</a></code>:</p>
+
+<pre><code><span class="t">XDo</span>.act <span class="k">do</span>
+  active_window <span class="k">do</span> <span class="o">|</span>win<span class="o">|</span>
+    win.<span class="k">type</span> <span class="s">&quot;hello from Crystal!&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L18" target="_blank">
+        x_do.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do/enums.cr#L1" target="_blank">
+        x_do/enums.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do/libxdo.cr#L1" target="_blank">
+        x_do/libxdo.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do/version.cr#L1" target="_blank">
+        x_do/version.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="DEFAULT_DELAY">
+        <strong>DEFAULT_DELAY</strong> = <code><span class="n">12000</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.8.3&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#new(display=ENV[&quot;DISPLAY&quot;]?)-class-method" class="signature"><strong>.new</strong>(display = <span class="t">ENV</span>[<span class="s">&quot;DISPLAY&quot;</span>]?)</a>
+        
+          <div class="summary"><p>Creates a new <code><a href="XDo.html">XDo</a></code> instance with the given X11 <em>display</em>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#act(&)-class-method" class="signature"><strong>.act</strong>(&)</a>
+        
+          <div class="summary"><p>Yields a block with an <code><a href="XDo.html">XDo</a></code> instance, providing a DSL for interaction.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lib_version-class-method" class="signature"><strong>.lib_version</strong></a>
+        
+          <div class="summary"><p>Returns the version of <code>libxdo</code> being used as a <code>String</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#symbol_map-class-method" class="signature"><strong>.symbol_map</strong></a>
+        
+          <div class="summary"><p>Returns a <code>Hash(String, String)</code> indicating the current symbol map.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#active_modifiers-instance-method" class="signature"><strong>#active_modifiers</strong></a>
+        
+          <div class="summary"><p>Returns a list of <code>XDo::LibXDo::Charcodemap</code>s indicating all active modifier keys.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#active_window(&)-instance-method" class="signature"><strong>#active_window</strong>(&)</a>
+        
+          <div class="summary"><p>Returns the <code><a href="XDo/Window.html">Window</a></code> that is currently active.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#active_window-instance-method" class="signature"><strong>#active_window</strong></a>
+        
+          <div class="summary"><p>Returns the <code><a href="XDo/Window.html">Window</a></code> that is currently active.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear_active_modifiers-instance-method" class="signature"><strong>#clear_active_modifiers</strong></a>
+        
+          <div class="summary"><p><span class="flag orange">TODO</span>  implement</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#click(button:Button)-instance-method" class="signature"><strong>#click</strong>(button : Button)</a>
+        
+          <div class="summary"><p>Click the given mouse <em>button</em> on the active window (mouse-down + mouse-up)</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#click(button:Button,repeat,delay=DEFAULT_DELAY)-instance-method" class="signature"><strong>#click</strong>(button : Button, repeat, delay = <span class="t">DEFAULT_DELAY</span>)</a>
+        
+          <div class="summary"><p>Click the given mouse <em>button</em> <em>repeat</em> times, with <em>delay</em> between each click.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#desktop-instance-method" class="signature"><strong>#desktop</strong></a>
+        
+          <div class="summary"><p>Returns the current desktop's number.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#desktop=(desktop)-instance-method" class="signature"><strong>#desktop=</strong>(desktop)</a>
+        
+          <div class="summary"><p>Sets the current desktop.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#desktops-instance-method" class="signature"><strong>#desktops</strong></a>
+        
+          <div class="summary"><p>Returns the number of desktops.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#desktops=(ndesktops)-instance-method" class="signature"><strong>#desktops=</strong>(ndesktops)</a>
+        
+          <div class="summary"><p>Sets the number of desktops.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#disable_feature(feature:XDoFeatures)-instance-method" class="signature"><strong>#disable_feature</strong>(feature : XDoFeatures)</a>
+        
+          <div class="summary"><p>Disable an <code>xdo</code> feature.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#display:String?-instance-method" class="signature"><strong>#display</strong> : String?</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#enable_feature(feature:XDoFeatures)-instance-method" class="signature"><strong>#enable_feature</strong>(feature : XDoFeatures)</a>
+        
+          <div class="summary"><p>Enable an <code>xdo</code> feature.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#finalize-instance-method" class="signature"><strong>#finalize</strong></a>
+        
+          <div class="summary"><p>Destroys the instance's internal state.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#focused_window(*,sane=true)-instance-method" class="signature"><strong>#focused_window</strong>(*, sane = <span class="n">true</span>)</a>
+        
+          <div class="summary"><p>Returns the <code><a href="XDo/Window.html">Window</a></code> that currently has focus.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#focused_window(*,sane=true,&)-instance-method" class="signature"><strong>#focused_window</strong>(*, sane = <span class="n">true</span>, &)</a>
+        
+          <div class="summary"><p>Returns the <code><a href="XDo/Window.html">Window</a></code> that currently has focus.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_feature?(feature:XDoFeatures)-instance-method" class="signature"><strong>#has_feature?</strong>(feature : XDoFeatures)</a>
+        
+          <div class="summary"><p>Test whether a feature is enabled.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#input_state:KeyMask-instance-method" class="signature"><strong>#input_state</strong> : KeyMask</a>
+        
+          <div class="summary"><p>Returns the input state, which is the <code>OR</code> of any active modifiers in the <code><a href="XDo/KeyMask.html">KeyMask</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#keys(keys:String,delay=DEFAULT_DELAY)-instance-method" class="signature"><strong>#keys</strong>(keys : String, delay = <span class="t">DEFAULT_DELAY</span>)</a>
+        
+          <div class="summary"><p>Send some <em>keys</em> (down + up) to the active window, with <em>delay</em> between them.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#keys_down(keys:String,delay=DEFAULT_DELAY)-instance-method" class="signature"><strong>#keys_down</strong>(keys : String, delay = <span class="t">DEFAULT_DELAY</span>)</a>
+        
+          <div class="summary"><p>Send some key press (down) events for the given <em>keys</em>, with <em>delay</em> between them.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#keys_raw(keys:Array(LibXDo::Charcodemap),*,pressed:Bool,modifier=0,delay=DEFAULT_DELAY)-instance-method" class="signature"><strong>#keys_raw</strong>(keys : Array(LibXDo::Charcodemap), *, pressed : Bool, modifier = <span class="n">0</span>, delay = <span class="t">DEFAULT_DELAY</span>)</a>
+        
+          <div class="summary"><p>Send some key events by specifying keysyms and modifiers directly, with <em>delay</em> between them.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#keys_up(keys:String,delay=DEFAULT_DELAY)-instance-method" class="signature"><strong>#keys_up</strong>(keys : String, delay = <span class="t">DEFAULT_DELAY</span>)</a>
+        
+          <div class="summary"><p>Send some key release (up) events for the given <em>keys</em>, with <em>delay</em> between them.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mouse_down(button:Button)-instance-method" class="signature"><strong>#mouse_down</strong>(button : Button)</a>
+        
+          <div class="summary"><p>Send a mouse-down event for the given mouse <em>button</em> to the active window.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mouse_location-instance-method" class="signature"><strong>#mouse_location</strong></a>
+        
+          <div class="summary"><p>Returns the mouse's current position as a tuple of <code>x</code> and <code>y</code> coordinates, the <code>screen</code> it's on, and the <code><a href="XDo/Window.html">Window</a></code> it's over.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mouse_up(button:Button)-instance-method" class="signature"><strong>#mouse_up</strong>(button : Button)</a>
+        
+          <div class="summary"><p>Send a mouse-up event for the given mouse <em>button</em> to the active window.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mouse_window(&)-instance-method" class="signature"><strong>#mouse_window</strong>(&)</a>
+        
+          <div class="summary"><p>Returns the <code><a href="XDo/Window.html">Window</a></code> that the mouse is currently over.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#mouse_window-instance-method" class="signature"><strong>#mouse_window</strong></a>
+        
+          <div class="summary"><p>Returns the <code><a href="XDo/Window.html">Window</a></code> that the mouse is currently over.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#move_mouse(x,y,screen)-instance-method" class="signature"><strong>#move_mouse</strong>(x, y, screen)</a>
+        
+          <div class="summary"><p>Moves the mouse to coordinates <em>x</em>, <em>y</em> on the given <em>screen</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#move_mouse(x,y)-instance-method" class="signature"><strong>#move_mouse</strong>(x, y)</a>
+        
+          <div class="summary"><p>Moves the mouse to coordinates <em>x</em>, <em>y</em> relative to its current position.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_mouse_move(&)-instance-method" class="signature"><strong>#on_mouse_move</strong>(&)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_mouse_move_from(x,y,&)-instance-method" class="signature"><strong>#on_mouse_move_from</strong>(x, y, &)</a>
+        
+          <div class="summary"><p>Wait for the mouse to move from the coordinates <em>x</em>, <em>y</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#on_mouse_move_to(x,y,&)-instance-method" class="signature"><strong>#on_mouse_move_to</strong>(x, y, &)</a>
+        
+          <div class="summary"><p>Wait for the mouse to move to the coordinates <em>x</em>, <em>y</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#search(query)-instance-method" class="signature"><strong>#search</strong>(query)</a>
+        
+          <div class="summary"><p>Takes a <code><a href="XDo/Search.html">Search</a></code> and runs it, returning a list of <code><a href="XDo/Window.html">Window</a></code>s matching the search.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#search(&)-instance-method" class="signature"><strong>#search</strong>(&)</a>
+        
+          <div class="summary"><p>Like <code><a href="XDo.html#search(query)-instance-method">#search(query)</a></code>, but yields a block to build the query directly.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select_window(&)-instance-method" class="signature"><strong>#select_window</strong>(&)</a>
+        
+          <div class="summary"><p>Returns the <code><a href="XDo/Window.html">Window</a></code> selected interactively.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#select_window-instance-method" class="signature"><strong>#select_window</strong></a>
+        
+          <div class="summary"><p>Returns the <code><a href="XDo/Window.html">Window</a></code> selected interactively.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#set_active_modifiers-instance-method" class="signature"><strong>#set_active_modifiers</strong></a>
+        
+          <div class="summary"><p><span class="flag orange">TODO</span>  implement</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#type(text:String,delay=DEFAULT_DELAY)-instance-method" class="signature"><strong>#type</strong>(text : String, delay = <span class="t">DEFAULT_DELAY</span>)</a>
+        
+          <div class="summary"><p>Send some <em>text</em> to the active window, with <em>delay</em> between the keystrokes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#viewport-instance-method" class="signature"><strong>#viewport</strong></a>
+        
+          <div class="summary"><p>Gets the desktop viewport as an <code>x</code>, <code>y</code> tuple.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#viewport=(tup)-instance-method" class="signature"><strong>#viewport=</strong>(tup)</a>
+        
+          <div class="summary"><p>Sets the desktop viewport (only relevant if <code>_NET_DESKTOP_VIEWPORT</code> is supported).</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#viewport_dimensions(screen)-instance-method" class="signature"><strong>#viewport_dimensions</strong>(screen)</a>
+        
+          <div class="summary"><p>Gets the dimensions of the given screen's viewport as a <code>width</code>, <code>height</code> tuple.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#wait_for_mouse_move_from(x,y)-instance-method" class="signature"><strong>#wait_for_mouse_move_from</strong>(x, y)</a>
+        
+          <div class="summary"><p>Wait for the mouse to move from the coordinates <em>x</em>, <em>y</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#wait_for_mouse_move_to(x,y)-instance-method" class="signature"><strong>#wait_for_mouse_move_to</strong>(x, y)</a>
+        
+          <div class="summary"><p>Wait for the mouse to move to the coordinates <em>x</em>, <em>y</em>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="new(display=ENV[&quot;DISPLAY&quot;]?)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(display = <span class="t">ENV</span>[<span class="s">&quot;DISPLAY&quot;</span>]?)
+
+        <a class="method-permalink" href="#new(display=ENV[&quot;DISPLAY&quot;]?)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a new <code><a href="XDo.html">XDo</a></code> instance with the given X11 <em>display</em>.</p>
+
+<pre><code><span class="c"># create an instance on the default display or `DISPLAY` env variable</span>
+xdo <span class="o">=</span> <span class="t">XDo</span>.<span class="k">new</span>
+
+<span class="c"># ...or with a different X display</span>
+xdo2 <span class="o">=</span> <span class="t">XDo</span>.<span class="k">new</span>(<span class="s">&quot;:2&quot;</span>)
+
+<span class="c"># ... do some work ...</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L77" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="act(&)-class-method">
+      <div class="signature">
+        
+        def self.<strong>act</strong>(&)
+
+        <a class="method-permalink" href="#act(&)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yields a block with an <code><a href="XDo.html">XDo</a></code> instance, providing a DSL for interaction.</p>
+
+<pre><code><span class="t">XDo</span>.act <span class="k">do</span>
+  select_window <span class="k">do</span> <span class="o">|</span>win<span class="o">|</span>
+    win.unmap!
+    sleep <span class="n">1</span>
+    win.map!
+    win.<span class="k">type</span> <span class="s">&quot;hello&quot;</span>
+  <span class="k">end</span>
+
+  desktop <span class="o">=</span> <span class="n">3</span>
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L61" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lib_version-class-method">
+      <div class="signature">
+        
+        def self.<strong>lib_version</strong>
+
+        <a class="method-permalink" href="#lib_version-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the version of <code>libxdo</code> being used as a <code>String</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L25" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="symbol_map-class-method">
+      <div class="signature">
+        
+        def self.<strong>symbol_map</strong>
+
+        <a class="method-permalink" href="#symbol_map-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>Hash(String, String)</code> indicating the current symbol map.</p>
+
+<pre><code><span class="t">XDo</span>.symbol_map <span class="c"># =&gt; {&quot;alt&quot; =&gt; &quot;Alt_L&quot;, &quot;ctrl&quot; =&gt; &quot;Control_L&quot;}</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L34" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="active_modifiers-instance-method">
+      <div class="signature">
+        
+        def <strong>active_modifiers</strong>
+
+        <a class="method-permalink" href="#active_modifiers-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a list of <code>XDo::LibXDo::Charcodemap</code>s indicating all active modifier keys.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L141" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="active_window(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>active_window</strong>(&)
+
+        <a class="method-permalink" href="#active_window(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the <code><a href="XDo/Window.html">Window</a></code> that is currently active.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L198" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="active_window-instance-method">
+      <div class="signature">
+        
+        def <strong>active_window</strong>
+
+        <a class="method-permalink" href="#active_window-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the <code><a href="XDo/Window.html">Window</a></code> that is currently active.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L192" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear_active_modifiers-instance-method">
+      <div class="signature">
+        
+        def <strong>clear_active_modifiers</strong>
+
+        <a class="method-permalink" href="#clear_active_modifiers-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag orange">TODO</span>  implement</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L153" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="click(button:Button)-instance-method">
+      <div class="signature">
+        
+        def <strong>click</strong>(button : <a href="XDo/Button.html">Button</a>)
+
+        <a class="method-permalink" href="#click(button:Button)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Click the given mouse <em>button</em> on the active window (mouse-down + mouse-up)</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L319" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="click(button:Button,repeat,delay=DEFAULT_DELAY)-instance-method">
+      <div class="signature">
+        
+        def <strong>click</strong>(button : <a href="XDo/Button.html">Button</a>, repeat, delay = <span class="t">DEFAULT_DELAY</span>)
+
+        <a class="method-permalink" href="#click(button:Button,repeat,delay=DEFAULT_DELAY)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Click the given mouse <em>button</em> <em>repeat</em> times, with <em>delay</em> between each click.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L324" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="desktop-instance-method">
+      <div class="signature">
+        
+        def <strong>desktop</strong>
+
+        <a class="method-permalink" href="#desktop-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the current desktop's number.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L259" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="desktop=(desktop)-instance-method">
+      <div class="signature">
+        
+        def <strong>desktop=</strong>(desktop)
+
+        <a class="method-permalink" href="#desktop=(desktop)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the current desktop.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L254" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="desktops-instance-method">
+      <div class="signature">
+        
+        def <strong>desktops</strong>
+
+        <a class="method-permalink" href="#desktops-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the number of desktops.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L248" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="desktops=(ndesktops)-instance-method">
+      <div class="signature">
+        
+        def <strong>desktops=</strong>(ndesktops)
+
+        <a class="method-permalink" href="#desktops=(ndesktops)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the number of desktops.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L243" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="disable_feature(feature:XDoFeatures)-instance-method">
+      <div class="signature">
+        
+        def <strong>disable_feature</strong>(feature : <a href="XDo/XDoFeatures.html">XDoFeatures</a>)
+
+        <a class="method-permalink" href="#disable_feature(feature:XDoFeatures)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Disable an <code>xdo</code> feature.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L294" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="display:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>display</strong> : String?
+
+        <a class="method-permalink" href="#display:String?-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L20" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="enable_feature(feature:XDoFeatures)-instance-method">
+      <div class="signature">
+        
+        def <strong>enable_feature</strong>(feature : <a href="XDo/XDoFeatures.html">XDoFeatures</a>)
+
+        <a class="method-permalink" href="#enable_feature(feature:XDoFeatures)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Enable an <code>xdo</code> feature.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L299" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="finalize-instance-method">
+      <div class="signature">
+        
+        def <strong>finalize</strong>
+
+        <a class="method-permalink" href="#finalize-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Destroys the instance's internal state.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L87" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="focused_window(*,sane=true)-instance-method">
+      <div class="signature">
+        
+        def <strong>focused_window</strong>(*, sane = <span class="n">true</span>)
+
+        <a class="method-permalink" href="#focused_window(*,sane=true)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the <code><a href="XDo/Window.html">Window</a></code> that currently has focus.</p>
+
+<p>When <em>sane</em> is set to <code>true</code>, returns the first ancestor-or-self window
+with the <code>WM_CLASS</code> property. When set to <code>false</code>, returns the actual focused
+window (which may not be the application's top-level window).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L163" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="focused_window(*,sane=true,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>focused_window</strong>(*, sane = <span class="n">true</span>, &)
+
+        <a class="method-permalink" href="#focused_window(*,sane=true,&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the <code><a href="XDo/Window.html">Window</a></code> that currently has focus.</p>
+
+<p>When <em>sane</em> is set to <code>true</code>, returns the first ancestor-or-self window
+with the <code>WM_CLASS</code> property. When set to <code>false</code>, returns the actual focused
+window (which may not be the application's top-level window).</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L176" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_feature?(feature:XDoFeatures)-instance-method">
+      <div class="signature">
+        
+        def <strong>has_feature?</strong>(feature : <a href="XDo/XDoFeatures.html">XDoFeatures</a>)
+
+        <a class="method-permalink" href="#has_feature?(feature:XDoFeatures)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Test whether a feature is enabled.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L304" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="input_state:KeyMask-instance-method">
+      <div class="signature">
+        
+        def <strong>input_state</strong> : <a href="XDo/KeyMask.html">KeyMask</a>
+
+        <a class="method-permalink" href="#input_state:KeyMask-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the input state, which is the <code>OR</code> of any active modifiers
+in the <code><a href="XDo/KeyMask.html">KeyMask</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L266" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="keys(keys:String,delay=DEFAULT_DELAY)-instance-method">
+      <div class="signature">
+        
+        def <strong>keys</strong>(keys : String, delay = <span class="t">DEFAULT_DELAY</span>)
+
+        <a class="method-permalink" href="#keys(keys:String,delay=DEFAULT_DELAY)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Send some <em>keys</em> (down + up) to the active window, with <em>delay</em> between them.</p>
+
+<pre><code>keys <span class="s">&quot;Ctrl+s&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L342" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="keys_down(keys:String,delay=DEFAULT_DELAY)-instance-method">
+      <div class="signature">
+        
+        def <strong>keys_down</strong>(keys : String, delay = <span class="t">DEFAULT_DELAY</span>)
+
+        <a class="method-permalink" href="#keys_down(keys:String,delay=DEFAULT_DELAY)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Send some key press (down) events for the given <em>keys</em>, with <em>delay</em> between them.
+See <code><a href="XDo.html#keys_up(keys:String,delay=DEFAULT_DELAY)-instance-method">#keys_up</a></code>.</p>
+
+<pre><code>keys_down <span class="s">&quot;Ctrl+o&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L352" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="keys_raw(keys:Array(LibXDo::Charcodemap),*,pressed:Bool,modifier=0,delay=DEFAULT_DELAY)-instance-method">
+      <div class="signature">
+        
+        def <strong>keys_raw</strong>(keys : Array(LibXDo::Charcodemap), *, pressed : Bool, modifier = <span class="n">0</span>, delay = <span class="t">DEFAULT_DELAY</span>)
+
+        <a class="method-permalink" href="#keys_raw(keys:Array(LibXDo::Charcodemap),*,pressed:Bool,modifier=0,delay=DEFAULT_DELAY)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Send some key events by specifying keysyms and modifiers directly,
+with <em>delay</em> between them.
+You most likely want to use <code><a href="XDo.html#keys(keys:String,delay=DEFAULT_DELAY)-instance-method">#keys</a></code> or <code><a href="XDo.html#type(text:String,delay=DEFAULT_DELAY)-instance-method">#type</a></code> instead, however this function
+skips the string parsing and should consequently run slightly faster.</p>
+
+<pre><code>key1 <span class="o">=</span> <span class="t">XDo</span><span class="t">::</span><span class="t">LibXDo</span><span class="t">::</span><span class="t">Charcodemap</span>.<span class="k">new</span>
+key1.code <span class="o">=</span> <span class="n">38</span>
+key1.modmask <span class="o">=</span> <span class="n">1</span>
+key2 <span class="o">=</span> <span class="t">XDo</span><span class="t">::</span><span class="t">LibXDo</span><span class="t">::</span><span class="t">Charcodemap</span>.<span class="k">new</span>
+key2.code <span class="o">=</span> <span class="n">56</span>
+keys <span class="o">=</span> [key1, key2]
+<span class="c"># Sends `AB`</span>
+keys_raw keys, pressed: <span class="n">true</span>
+keys_raw keys, pressed: <span class="n">false</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L382" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="keys_up(keys:String,delay=DEFAULT_DELAY)-instance-method">
+      <div class="signature">
+        
+        def <strong>keys_up</strong>(keys : String, delay = <span class="t">DEFAULT_DELAY</span>)
+
+        <a class="method-permalink" href="#keys_up(keys:String,delay=DEFAULT_DELAY)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Send some key release (up) events for the given <em>keys</em>, with <em>delay</em> between them.
+See <code><a href="XDo.html#keys_down(keys:String,delay=DEFAULT_DELAY)-instance-method">#keys_down</a></code>.</p>
+
+<pre><code>keys_up <span class="s">&quot;Ctrl+o&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L362" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mouse_down(button:Button)-instance-method">
+      <div class="signature">
+        
+        def <strong>mouse_down</strong>(button : <a href="XDo/Button.html">Button</a>)
+
+        <a class="method-permalink" href="#mouse_down(button:Button)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Send a mouse-down event for the given mouse <em>button</em> to the active window.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L309" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mouse_location-instance-method">
+      <div class="signature">
+        
+        def <strong>mouse_location</strong>
+
+        <a class="method-permalink" href="#mouse_location-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the mouse's current position as a tuple of <code>x</code> and <code>y</code> coordinates,
+the <code>screen</code> it's on, and the <code><a href="XDo/Window.html">Window</a></code> it's over.</p>
+
+<pre><code>x, y, screen, win <span class="o">=</span> xdo.mouse_location</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L107" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mouse_up(button:Button)-instance-method">
+      <div class="signature">
+        
+        def <strong>mouse_up</strong>(button : <a href="XDo/Button.html">Button</a>)
+
+        <a class="method-permalink" href="#mouse_up(button:Button)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Send a mouse-up event for the given mouse <em>button</em> to the active window.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L314" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mouse_window(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>mouse_window</strong>(&)
+
+        <a class="method-permalink" href="#mouse_window(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the <code><a href="XDo/Window.html">Window</a></code> that the mouse is currently over.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L187" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="mouse_window-instance-method">
+      <div class="signature">
+        
+        def <strong>mouse_window</strong>
+
+        <a class="method-permalink" href="#mouse_window-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the <code><a href="XDo/Window.html">Window</a></code> that the mouse is currently over.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L181" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="move_mouse(x,y,screen)-instance-method">
+      <div class="signature">
+        
+        def <strong>move_mouse</strong>(x, y, screen)
+
+        <a class="method-permalink" href="#move_mouse(x,y,screen)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Moves the mouse to coordinates <em>x</em>, <em>y</em> on the given <em>screen</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L92" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="move_mouse(x,y)-instance-method">
+      <div class="signature">
+        
+        def <strong>move_mouse</strong>(x, y)
+
+        <a class="method-permalink" href="#move_mouse(x,y)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Moves the mouse to coordinates <em>x</em>, <em>y</em> relative to its current position.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L97" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_mouse_move(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>on_mouse_move</strong>(&)
+
+        <a class="method-permalink" href="#on_mouse_move(&)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L134" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_mouse_move_from(x,y,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>on_mouse_move_from</strong>(x, y, &)
+
+        <a class="method-permalink" href="#on_mouse_move_from(x,y,&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Wait for the mouse to move from the coordinates <em>x</em>, <em>y</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L118" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="on_mouse_move_to(x,y,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>on_mouse_move_to</strong>(x, y, &)
+
+        <a class="method-permalink" href="#on_mouse_move_to(x,y,&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Wait for the mouse to move to the coordinates <em>x</em>, <em>y</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L129" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="search(query)-instance-method">
+      <div class="signature">
+        
+        def <strong>search</strong>(query)
+
+        <a class="method-permalink" href="#search(query)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Takes a <code><a href="XDo/Search.html">Search</a></code> and runs it, returning a list of <code><a href="XDo/Window.html">Window</a></code>s matching the search.</p>
+
+<pre><code><span class="t">XDo</span>.act <span class="k">do</span>
+  query <span class="o">=</span> <span class="t">XDo</span><span class="t">::</span><span class="t">Search</span>.build { window_name <span class="s">&quot;Firefox&quot;</span> }
+  winds <span class="o">=</span> search(query)
+  puts winds
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L222" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="search(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>search</strong>(&)
+
+        <a class="method-permalink" href="#search(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Like <code><a href="XDo.html#search(query)-instance-method">#search(query)</a></code>, but yields a block to build the query directly.</p>
+
+<pre><code><span class="t">XDo</span>.act <span class="k">do</span>
+  winds <span class="o">=</span> search { window_name <span class="s">&quot;Firefox&quot;</span> }
+  puts winds
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L236" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select_window(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>select_window</strong>(&)
+
+        <a class="method-permalink" href="#select_window(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the <code><a href="XDo/Window.html">Window</a></code> selected interactively.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L209" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="select_window-instance-method">
+      <div class="signature">
+        
+        def <strong>select_window</strong>
+
+        <a class="method-permalink" href="#select_window-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the <code><a href="XDo/Window.html">Window</a></code> selected interactively.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L203" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="set_active_modifiers-instance-method">
+      <div class="signature">
+        
+        def <strong>set_active_modifiers</strong>
+
+        <a class="method-permalink" href="#set_active_modifiers-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><span class="flag orange">TODO</span>  implement</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L147" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="type(text:String,delay=DEFAULT_DELAY)-instance-method">
+      <div class="signature">
+        
+        def <strong>type</strong>(text : String, delay = <span class="t">DEFAULT_DELAY</span>)
+
+        <a class="method-permalink" href="#type(text:String,delay=DEFAULT_DELAY)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Send some <em>text</em> to the active window, with <em>delay</em> between the keystrokes.</p>
+
+<pre><code><span class="k">type</span> <span class="s">&quot;hello from Crystal!&quot;</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L333" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="viewport-instance-method">
+      <div class="signature">
+        
+        def <strong>viewport</strong>
+
+        <a class="method-permalink" href="#viewport-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets the desktop viewport as an <code>x</code>, <code>y</code> tuple.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L282" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="viewport=(tup)-instance-method">
+      <div class="signature">
+        
+        def <strong>viewport=</strong>(tup)
+
+        <a class="method-permalink" href="#viewport=(tup)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Sets the desktop viewport (only relevant if <code>_NET_DESKTOP_VIEWPORT</code> is supported).</p>
+
+<pre><code><span class="t">XDo</span>.act <span class="k">do</span>
+  viewport <span class="o">=</span> {x, y}
+<span class="k">end</span></code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L277" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="viewport_dimensions(screen)-instance-method">
+      <div class="signature">
+        
+        def <strong>viewport_dimensions</strong>(screen)
+
+        <a class="method-permalink" href="#viewport_dimensions(screen)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Gets the dimensions of the given screen's viewport as a <code>width</code>, <code>height</code> tuple.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L288" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="wait_for_mouse_move_from(x,y)-instance-method">
+      <div class="signature">
+        
+        def <strong>wait_for_mouse_move_from</strong>(x, y)
+
+        <a class="method-permalink" href="#wait_for_mouse_move_from(x,y)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Wait for the mouse to move from the coordinates <em>x</em>, <em>y</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L113" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="wait_for_mouse_move_to(x,y)-instance-method">
+      <div class="signature">
+        
+        def <strong>wait_for_mouse_move_to</strong>(x, y)
+
+        <a class="method-permalink" href="#wait_for_mouse_move_to(x,y)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Wait for the mouse to move to the coordinates <em>x</em>, <em>y</em>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/woodruffw/x_do.cr/blob/a8eea4c180ee53103d7e7def067852a6fd24e27a/src/x_do.cr#L124" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
